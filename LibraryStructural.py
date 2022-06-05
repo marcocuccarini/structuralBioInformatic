@@ -29,7 +29,7 @@ from sklearn.preprocessing import label_binarize
 from sklearn.multiclass import OneVsRestClassifier
 from sklearn.metrics import roc_auc_score
 
-def calculate_tpr_fpr(y_real, y_pred):
+def Calculate_tpr_fpr(y_real, y_pred):
     '''
     Calculates the True Positive Rate (tpr) and the True Negative Rate (fpr) based on real and predicted observations
 
@@ -56,7 +56,7 @@ def calculate_tpr_fpr(y_real, y_pred):
     return tpr, fpr
 
 
-def get_all_roc_coordinates(y_real, y_proba):
+def Get_all_roc_coordinates(y_real, y_proba):
     '''
     Calculates all the ROC Curve coordinates (tpr and fpr) by considering each point as a treshold for the predicion of the class.
 
@@ -96,7 +96,7 @@ def DatasetDefinition(consider_unclassified,dataSet):
       df[j]=[row[i] for row in listdataSet]
     return df
 
-def get_label(df):
+def Get_Label(df):
     y=df['Interaction']
     df=df.drop('Interaction', axis=1)
     df=df.drop('Unnamed: 0', axis=1)
