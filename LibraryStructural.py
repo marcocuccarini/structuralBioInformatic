@@ -164,6 +164,8 @@ def LabelEncoder(df,y):
     return df,y
 
 def OverSample(df,y,col):
+    del col[0]
+    del col[-1]
     X=df.to_numpy()
     oversample = SMOTE()
     X, y = oversample.fit_resample(X, y)
