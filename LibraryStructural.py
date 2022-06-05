@@ -105,7 +105,7 @@ def Get_Label(df):
     y=df['Interaction']
     df=df.drop('Interaction', axis=1)
     df=df.drop('Unnamed: 0', axis=1)
-    return df,y
+    return df,y,list(set(y)).sort()
 
 
 def Preprocessing(df):
@@ -181,7 +181,7 @@ def OverSample(df,y,col):
   
         dfX[j]=[row[i] for row in X]
 
-    return X,y
+    return X,y,np_utils.to_categorical(y)
 
 def PrintLossAccuracy(hist):
     loss_train = hist.history['loss']
@@ -206,11 +206,11 @@ def PrintLossAccuracy(hist):
     plt.legend()
     plt.show()
 
-def PrintConfusionMatrix(y_test,y_pred):
+def PrintConfusionMatrix(y_test,y_pred,label):
     cm = confusion_matrix(y_test, y_pred)
     cmn = cm.astype('float')/cm.sum(axis=1)[:, np.newaxis]
     fig, ax = plt.subplots(figsize=(14,14))
-    sns.heatmap(cmn, annot=True, fmt='.2f', xticklabels=y_sort, yticklabels=y_sort ,cmap=plt.cm.Blues)
+    sns.heatmap(cmn, annot=True, fmt='.2f', xticklabels=label, yticklabels=label ,cmap=plt.cm.Blues)
     plt.ylabel('Actual')
     plt.xlabel('Predicted')
     plt.show()
