@@ -183,7 +183,7 @@ def OverSample(df,y,col):
   
         dfX[j]=[row[i] for row in X]
 
-    return X,y,np_utils.to_categorical(y)
+    return dfX,y,np_utils.to_categorical(y)
 
 def PrintLossAccuracy(hist):
     loss_train = hist.history['loss']
