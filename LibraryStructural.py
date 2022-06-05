@@ -121,7 +121,7 @@ def Preprocessing(df):
     return df
 
 
-def LabelEncoder(df)
+def LabelEncoder(df):
     pdb_idL = preprocessing.LabelEncoder()
     pdb_idL.fit(df['pdb_id'])
     df['pdb_id']=pdb_idL.transform(df['pdb_id'])
@@ -207,4 +207,13 @@ def PrintConfusionMatrix(y_test,y_pred):
     plt.xlabel('Predicted')
     plt.show()
     fig.savefig(path+'model_result/'+'ConfusionMatrix'+m+str(consider_unclassified)+'.png', dpi=600)
-    
+
+def GetFilePDB():
+    inp = files.upload()
+    dataSet = pd.DataFrame(columns=['pdb_id','s_ch','s_resi','s_ins','s_resn','s_ss8','s_rsa','s_up','s_down','s_phi','s_psi','s_ss3','s_a1','s_a2','s_a3', 's_a4', 's_a5', 't_ch', 't_resi','t_ins','t_resn','t_ss8','t_rsa','t_up',	't_down',	't_phi',	't_psi',	't_ss3',	't_a1',	't_a2',	't_a3',	't_a4',	't_a5',	'Interaction'])
+    for key in inp.keys():
+      data = pd.read_csv(key, sep='\t')
+      dataSet = dataSet.append(data, ignore_index=True)
+
+    dataSet.to_csv(path+'SB_dataset.csv')
+    return dataSet
