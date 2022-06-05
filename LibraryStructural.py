@@ -166,7 +166,7 @@ def LabelEncoder(df,y):
     yy = preprocessing.LabelEncoder()
     yy.fit(y)
     y=yy.transform(y)
-    y_bin = np_utils.to_categorical(y_train)
+    y_bin = np_utils.to_categorical(y)
     return df,y,y,y_bin
 
 def OverSample(df,y,col):
