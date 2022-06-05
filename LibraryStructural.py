@@ -163,7 +163,7 @@ def LabelEncoder(df,y):
     y=yy.transform(y)
     return df,y
 
-def OverSample(df,y):
+def OverSample(df,y,col):
     X=df.to_numpy()
     oversample = SMOTE()
     X, y = oversample.fit_resample(X, y)
