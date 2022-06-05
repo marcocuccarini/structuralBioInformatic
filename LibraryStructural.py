@@ -78,8 +78,8 @@ def get_all_roc_coordinates(y_real, y_proba):
         fpr_list.append(fpr)
     return tpr_list, fpr_list
 
-def DatasetDefinition(consider_unclassified):
-    dataSet = pd.read_csv(path + 'SB_dataset.csv')
+def DatasetDefinition(consider_unclassified,dataSet):
+    
     npdataSet=dataSet.to_numpy(dtype=None)
     listdataSet=[]
     if (consider_unclassified):
