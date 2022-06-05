@@ -33,6 +33,8 @@ from sklearn.datasets import make_classification
 from imblearn.over_sampling import SMOTE
 from matplotlib import pyplot
 from numpy import where
+from sklearn.metrics import confusion_matrix
+
 
 def Calculate_tpr_fpr(y_real, y_pred):
     '''
