@@ -121,7 +121,7 @@ def Preprocessing(df):
     return df
 
 
-def LabelEncoder(df):
+def LabelEncoder(df,y):
     pdb_idL = preprocessing.LabelEncoder()
     pdb_idL.fit(df['pdb_id'])
     df['pdb_id']=pdb_idL.transform(df['pdb_id'])
