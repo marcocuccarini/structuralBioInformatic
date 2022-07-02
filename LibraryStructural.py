@@ -107,7 +107,7 @@ def Get_Label(df):
     y=df['Interaction']
     df=df.drop('Interaction', axis=1)
     df=df.drop('Unnamed: 0', axis=1)
-    return df,y,list(set(y)).sort()
+    return df,y,list(set(y))
 
 
 def Preprocessing(df):
